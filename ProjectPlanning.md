@@ -52,5 +52,7 @@ Our app allows users to quickly search up recipes for meals they want to try onl
 # TimeLine
 
 * Week 1
-    * 
+   * Test
+    
+* Week 2
 
