@@ -17,7 +17,7 @@
 
 # Reasons for using technology
 
-
+We decided to use a MERN stack because JavaScript is an integral language to web development. It is the only language that can run natively in the browser so being able to use 1 programming language for both the front end and back end just makes sense. React is also a highly sought after skill in the job market.
 
 # Project Description
 
@@ -52,7 +52,15 @@ Our app allows users to quickly search up recipes for meals they want to try onl
 # TimeLine
 
 * Week 1
-   * Test
-    
-* Week 2
+   * Feature planning
+   * DB design
+   * Wireframes
+   * Project setup
+* Week 2 
+* Week 3 
+* Week 4
+* Week 5
+* Week 6
+* Week 7
+
 
