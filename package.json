@@ -1,0 +1,43 @@
+{
+  "name": "fs-javascript-template",
+  "version": "1.0.0",
+  "description": "template for building full stack JavaScript applications using Mongodb, Express, React, Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "webpack serve --open",
+    "server": "nodemon src/server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k4iru/fs-javascript-template.git"
+  },
+  "author": "Kyle Cheung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k4iru/fs-javascript-template/issues"
+  },
+  "homepage": "https://github.com/k4iru/fs-javascript-template#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^6.1.0",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
+  }
+}
