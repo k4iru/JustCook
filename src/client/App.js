@@ -4,7 +4,11 @@ import About from './components/About/About';
 import Users from './components/Users/Users';
 import Home from './components/Home/Home';
 
-export default function App() {
+import { connect } from "react-redux";
+
+import Recipes from './components/Recipes/Recipes';
+
+function App() {
   return (
     <Router>
       <div>
@@ -31,11 +35,20 @@ export default function App() {
           <Route path="/users">
             <Users />
           </Route>
-          <Route path="/">
+          <Route path="/" >
             <Home />
+            <Recipes />
           </Route>
         </Switch>
       </div>
     </Router>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    current: state.shop.currentItem,
+  };
+};
+
+export default connect(mapStateToProps)(App);
