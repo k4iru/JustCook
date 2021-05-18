@@ -19,6 +19,8 @@
 
 We decided to use a MERN stack because JavaScript is an integral language to web development. It is the only language that can run natively in the browser so being able to use 1 programming language for both the front end and back end just makes sense. React is also a highly sought after skill in the job market.
 
+# Part 2 
+
 # Project Description
 
 No shopping needed! For the busy professional that love to cook but not the shopping!
@@ -39,15 +41,32 @@ Our app allows users to quickly search up recipes for meals they want to try onl
 * Express to server our React application
 * React for Client side user interface
 * Node for backend
+* Using Redux for state management
+* Authentication Security
+* browser sessions
 
 
 # List of functionality
 
 * User Accounts
-* Search recipes 
-* Get recipe ingredients
-* Order ingredients
-* Recipe guideline
+   * User Login
+   * User Registration
+* Search recipes
+   * Search by food type
+   * food allergy exclusion
+   * food filter options
+* Shopping Cart
+   * Add Recipe
+   * Remove Recipe
+   * Checkout Cart 
+* Recipe Page
+   * Recipe Details
+   * Add to cart
+   * Favourites
+* Checkout Page
+   * Ingredient List
+   * Pricing
+
 
 # TimeLine
 
@@ -57,10 +76,28 @@ Our app allows users to quickly search up recipes for meals they want to try onl
    * Wireframes
    * Project setup
 * Week 2 
+   * MVP
+      * Shopping Cart
+      * Homepage
+      * Recipe List
+         * Recipe List API
+         * Database setup
+      * Recipe Page
+         * Recipe information
+         * Ingredients List
+         * Cooking Instructions
+      * Basic Search
 * Week 3 
+   * User Accounts
+   * Checkout Page
 * Week 4
+   * Accessibility and Responsiveness pass
+   * Styling
 * Week 5
+   * Extra Features
 * Week 6
+   * Deployment
 * Week 7
+   * Presentation
 
 
