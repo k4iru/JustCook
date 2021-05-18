@@ -1,7 +1,7 @@
 {
-  "name": "fs-javascript-template",
+  "name": "justcook",
   "version": "1.0.0",
-  "description": "template for building full stack JavaScript applications using Mongodb, Express, React, Node",
+  "description": "get ingredients for recipes easily",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/k4iru/fs-javascript-template.git"
+    "url": "git+https://github.com/k4iru/JustCook.git"
   },
   "author": "Kyle Cheung",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/k4iru/fs-javascript-template/issues"
+    "url": "https://github.com/k4iru/JustCook/issues"
   },
-  "homepage": "https://github.com/k4iru/fs-javascript-template#readme",
+  "homepage": "https://github.com/k4iru/JustCook#readme",
   "devDependencies": {
     "@babel/core": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
