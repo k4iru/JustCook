@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from './components/About/About';
 import Users from './components/Users/Users';
 import Home from './components/Home/Home';
+import Searchbar from './components/Searchbar/Searchbar'
 
 import { connect } from "react-redux";
 
@@ -10,6 +11,7 @@ import Recipes from './components/Recipes/Recipes';
 
 function App() {
   return (
+
     <Router>
       <div>
         <nav>
@@ -24,6 +26,7 @@ function App() {
               <Link to="/users">Users</Link>
             </li>
           </ul>
+          <Searchbar />
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
