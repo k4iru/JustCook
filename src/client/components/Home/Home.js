@@ -3,12 +3,16 @@ import Searchbar from '../Searchbar/Searchbar'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { HomeItems } from "./HomeItems";
 import './Home.css';
-// import Background from "./1-main-image.png"
+import Background from "./1-main-image.png";
 // Attempt at importing image
+
 
 function Home() {
   return (
     <div className="page">
+
+      {/* use the image */}
+      <img src={Background} />
       <div className="banner">
         <h2>Just Cook</h2>
       </div>
