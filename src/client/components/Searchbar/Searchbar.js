@@ -15,21 +15,25 @@ class Searchbar extends Component {
     this.setState({ value: e.target.value });
   }
 
-  handleSubmit(e) {
-    fetch("/api/search").then(data => console.log(data));
+  // split post body for queries, options, etc
+ handleSubmit(e) {
+    let res = this.search('/api/search', {'query': this.state.value, 'options': 'another test'});
+    res.then(data => {
+      console.log(data.results);
+    });
     e.preventDefault();
   }
 
-  async search(url = '', data = {}) {
+  async search(url = "", data = {}) {
     const res = await fetch(url, {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
     return res.json();
   }

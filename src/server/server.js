@@ -1,4 +1,5 @@
 require('dotenv').config();
+const https = require('https');
 const path = require('path');
 const express = require('express');
 
@@ -12,9 +13,37 @@ const api_key = process.env.API_KEY;
 app.use(express.static('dist'));
 
 // api call to search spoonacular for recipes
-app.get('/api/search', (req, res) => {
+app.post('/api/search', (req, res) => {
     const base_url = 'https://api.spoonacular.com/recipes/complexSearch';
-    res.send('test');
+
+    // replace white space with +'s
+    queries = req.body.query.replace(/\s/g, '+');
+
+    let api_string = `${base_url}?apiKey=${api_key}&query=${queries}`;
+    console.log(api_string);
+
+    // very verbose, consider switching to node-fetch or request
+    https.get(api_string, resp => {
+        let body = "";
+        
+        // on data read
+        resp.on("data", chunk => {
+            body += chunk;
+        });
+
+        // on finish data read
+        resp.on("end", () => {
+            try {
+                let json = JSON.parse(body);
+                console.log(json);
+                res.json(json);
+            } catch(error) {
+                console.error(error.message);
+            }
+        });
+    }).on("error", err => {
+        console.error(err.message);
+    });
 });
 // client makes api call to server routes
 app.get('/api/test', (req, res) => {
