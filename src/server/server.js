@@ -22,7 +22,7 @@ app.post('/api/search', (req, res) => {
     let api_string = `${base_url}?apiKey=${api_key}&query=${queries}`;
     console.log(api_string);
 
-    // very verbose, consider switching to node-fetch or request
+    // get call to the spoonacular api. very verbose, consider switching to node-fetch or request
     https.get(api_string, resp => {
         let body = "";
         
