@@ -1,0 +1,77 @@
+.banner{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://techcrunch.com/wp-content/uploads/2015/11/grocery_being_delivered_instacart.jpg");
+    /* background-image: url("./1-main-image.png"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150%;
+}
+
+.banner h2{
+    font-size: 4em;
+    color: white;
+}
+
+.text-block{
+    background-color: var(--red);
+    color: white;
+    padding: 3em;
+    text-align: center;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.home-recipes{
+    height: 100%;
+    padding: 5em 0 10em 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-recipes a{
+    background-color: var(--navy-blue);
+    text-decoration: none;
+}
+
+.recipe-previews{
+    margin: 2.5em;
+    width: 300px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px rgb(196, 196, 196);
+}
+
+.recipe-previews h3{
+    background-color: var(--navy-blue);
+    color: var(--yellow);
+    padding: 0.25em 0;
+}
+
+.recipe-previews img{
+   width: 100%;
+   height: 300px;
+   border-radius: 15px 15px 0 0;
+}
+
+
+.recipe-previews p{
+    background-color: var(--blue);
+    color: white;
+    padding: 2em 3em;
+    border-radius: 0 0 15px 15px;
+}
+
+input{
+    color: red;
+}

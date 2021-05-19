@@ -4,45 +4,44 @@ import About from './components/About/About';
 import Users from './components/Users/Users';
 import Home from './components/Home/Home';
 import Searchbar from './components/Searchbar/Searchbar'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 import { connect } from "react-redux";
 
 import Recipes from './components/Recipes/Recipes';
+
 
 function App() {
   return (
 
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-          <Searchbar />
-        </nav>
-
+        <Header />
+        {/* <Searchbar /> */}
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/register">
+            <Home />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/recipe">
+            <Recipes />
+          </Route>
+          <Route path="/login">
+            <Home />
+          </Route>
+          <Route path="/favourites">
+            <Recipes />
+          </Route>
+          <Route path="/cart">
+            <Home />
           </Route>
           <Route path="/" >
             <Home />
-            <Recipes />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

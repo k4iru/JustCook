@@ -1,0 +1,37 @@
+.FooterItems{
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    padding: 2.5em 1em;
+    background-color: var(--red);
+    color: white;
+}
+
+.FooterItems p{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:1em;
+    padding-top:1em;
+    border-top: 1px solid white;
+}
+
+.FooterItems ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.FooterItems li{
+    margin: 0 1em;
+}
+
+.footer-links{
+    color: white;
+    text-decoration: none;
+    transition: 200ms;
+}
+
+.footer-links:hover{
+    color: var(--blue);
+}
