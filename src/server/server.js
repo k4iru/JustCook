@@ -20,7 +20,7 @@ app.post('/api/search', (req, res) => {
     queries = req.body.query.replace(/\s/g, '+');
 
     let api_string = `${base_url}?apiKey=${api_key}&query=${queries}`;
-    console.log(api_string);
+    //console.log(api_string);
 
     // get call to the spoonacular api. very verbose, consider switching to node-fetch or request
     https.get(api_string, resp => {
@@ -35,7 +35,7 @@ app.post('/api/search', (req, res) => {
         resp.on("end", () => {
             try {
                 let json = JSON.parse(body);
-                console.log(json);
+                //console.log(json);
                 res.json(json);
             } catch(error) {
                 console.error(error.message);
@@ -50,6 +50,6 @@ app.get('/api/test', (req, res) => {
     res.json({test: 'test'});
 });
 
-app.listen(8080, () => {
-    console.log('listening on 8080');
+app.listen(process.env.PORT || 8080, () => {
+    console.log(`listening on port: ${process.env.PORT}`);
 });
