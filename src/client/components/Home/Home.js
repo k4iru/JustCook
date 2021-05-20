@@ -12,7 +12,8 @@ function Home() {
     <div className="page">
 
       {/* use the image */}
-      <img src={Background} />
+
+     {/* <img src={Background} /> */ } 
       <div className="banner">
         <h2>Just Cook</h2>
       </div>
@@ -32,7 +33,7 @@ function Home() {
       <div className="home-recipes">
         {HomeItems.map((item, index) => {
             return (
-              <div class="recipe-previews">
+              <div className="recipe-previews">
                 <Link to="/recipe">
                 <img src={item.imgSrc}></img>
                 <h3>{item.title}</h3>
