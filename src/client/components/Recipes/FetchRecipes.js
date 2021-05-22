@@ -1,46 +1,45 @@
 import React, { Component } from "react";
 
-
 class HomeRecipes extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
-        this.state = { value: "" };
-    
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    this.state = {
+      recipes: [],
+    };
 
-    //onclick event
-    handleSubmit(e){
-        console.log("hello");
-    //connecting to get method in server.js
-    let res = this.getRecipeData('/api/fetch');
-    res.then(data => {
-      console.log(data.results);
-    });
-    //preventing submit (return false;)
-    e.preventDefault();
+    this.getRandomRecipes = this.getRandomRecipes.bind(this);
+  }
 
-    }
+  async getRandomRecipes() {
+    const headers = { "Content-Type": "application/json" };
+    // Simple GET request using fetch
+    fetch(
+      "https://api.spoonacular.com/recipes/random?apiKey=16d4e583d0e74c709a5598cd30b4798b&number=3",
+      { headers },
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        return data;
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  }
 
-    async getRecipeData() {
-        // GET request using fetch with async/await
-        const response = await fetch('https://api.spoonacular.com/recipes/random?apiKey=16d4e583d0e74c709a5598cd30b4798b');
-        const data = await response.json();
-        this.setState({ totalReactPackages: data.total })
-    }
-    
-      render() {
-          return (
-              <form onSubmit={this.handleSubmit}>
-                  <input type="submit" value="Fetch" />
-              </form>
-          )
-      }
-    
+  async componentDidMount() {
+    const recipes = await this.getRandomRecipes();
+    this.setState({ recipes });
+  }
 
-
-
+  render() {
+    return (
+        <div>
+           <h1> test </h1>
+        </div>
+    );
+  }
 }
 
 export default HomeRecipes;
