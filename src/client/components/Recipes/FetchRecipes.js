@@ -15,13 +15,24 @@ class HomeRecipes extends Component {
     const headers = { "Content-Type": "application/json" };
     // Simple GET request using fetch
     fetch(
-      "https://api.spoonacular.com/recipes/random?apiKey=16d4e583d0e74c709a5598cd30b4798b&number=3",
+      "https://api.spoonacular.com/recipes/random?apiKey=16d4e583d0e74c709a5598cd30b4798b&number=6",
       { headers },
     )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        return data;
+
+        var recipeList = "";
+    
+        for(let i in data.recipes) {
+          recipeList += "<a href='Recipe.js?id="+data.recipes[i].id+"'><div class='recipe-previews'>";
+          recipeList += "<img src='"+data.recipes[i].image+"' height='200'/>";
+          recipeList += "<h3>"+data.recipes[i].title+"</h3>";
+          recipeList += "<p>"+data.recipes[i].summary+"</p>";
+          recipeList += "</div><a>";
+        }
+        document.getElementById("replace").innerHTML = recipeList;
+        //return data;
       })
       .catch(() => {
         console.log("error");
@@ -35,8 +46,7 @@ class HomeRecipes extends Component {
 
   render() {
     return (
-        <div>
-           <h1> test </h1>
+        <div id="replace">
         </div>
     );
   }
