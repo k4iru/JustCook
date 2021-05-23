@@ -17,7 +17,7 @@ const Recipes = ({ recipes }) => {
     );
 };
 
-// 
+//
 /*
 // Allows us to choose what state in our redux store that this component has access to.  
 const mapStateToProps = state => {
