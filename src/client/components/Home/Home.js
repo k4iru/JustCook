@@ -1,5 +1,6 @@
 import React from "react";
 import Searchbar from '../Searchbar/Searchbar'
+import HomeRecipes from '../Recipes/FetchRecipes'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { HomeItems } from "./HomeItems";
 import './Home.css';
@@ -31,17 +32,7 @@ function Home() {
         <Searchbar />
       </div>
       <div className="home-recipes">
-        {HomeItems.map((item, index) => {
-            return (
-              <div className="recipe-previews">
-                <Link to="/recipe">
-                <img src={item.imgSrc}></img>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                </Link>
-              </div>
-            )
-          })}
+        <HomeRecipes />
       </div>
     </div>
       

@@ -45,6 +45,36 @@ app.post('/api/search', (req, res) => {
         console.error(err.message);
     });
 });
+
+//api call to fill home page with random recipes
+app.get("/api/fetch", (req, res) => {
+  const url = `https://api.spoonacular.com/recipes/random?apiKey=${api_key}`;
+  let body = "";
+
+  https
+    .get(url, (resp) => {
+      // on data read
+      resp.on("data", (chunk) => {
+        body += chunk;
+      });
+      // on finish data read
+      resp.on("end", () => {
+        try {
+          let json = JSON.parse(body);
+          //console.log(json);
+          res.json(json);
+        } catch (error) {
+          console.error(error.message);
+        }
+      });
+    })
+    .on("error", (err) => {
+      console.error(err.message);
+    });
+});
+
+
+
 // client makes api call to server routes
 app.get('/api/test', (req, res) => {
     res.json({test: 'test'});

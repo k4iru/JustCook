@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./Recipes.css";
 
 // importing the ability to connect to redux
