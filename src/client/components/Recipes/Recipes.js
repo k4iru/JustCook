@@ -17,8 +17,7 @@ const Recipes = ({ recipes }) => {
     );
 };
 
-//
-/*
+
 // Allows us to choose what state in our redux store that this component has access to.  
 const mapStateToProps = state => {
     return {
@@ -28,7 +27,7 @@ const mapStateToProps = state => {
         // we now have access to the products inside of our props
     }
 }
-*/
+
 
 // connect function passed in as a "Higher Order Component"
 export default connect(mapStateToProps)(Recipes);
