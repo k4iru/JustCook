@@ -22,7 +22,7 @@ function App() {
           <Route path="/register">
             <Home />
           </Route>
-          <Route path="/recipe">
+          <Route path="/recipes">
             <Recipes />
           </Route>
           <Route path="/login">

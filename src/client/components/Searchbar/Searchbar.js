@@ -1,18 +1,14 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "./searchbar.css";
-
-import { connect } from "react-redux";
-import {
-  UpdateQuery,
-  UpdateResults,
-} from "../../redux/Search/search-actions";
 
 class Searchbar extends Component {
   constructor(props) {
     super(props);
-     this.state = { 
+    this.state = {
       value: "",
-  results: [], };
+      results: [],
+    };
 
     // bind this
     this.handleChange = this.handleChange.bind(this);
@@ -24,12 +20,27 @@ class Searchbar extends Component {
   }
 
   // split post body for queries, options, etc
- handleSubmit(e) {
-    let res = this.search('/api/search', {'query': this.state.value, 'options': 'another test'});
-    res.then(data => {
-      console.log(data.results);
-    });
+  handleSubmit(e) {
     e.preventDefault();
+    let res = this.search("/api/search", {
+      query: this.state.value,
+      options: "another test",
+    });
+    res.then((data) => {
+      this.setState({
+        results: data.results,
+      });
+    }).then(d => {
+      //console.log('this state results: ' + this.state.results)
+      this.props.history.push({
+        pathname: "/recipe",
+        state: {
+          results: this.state.results,
+        },
+      })
+    });
+
+    //console.log(this.state.results);
   }
 
   async search(url = "", data = {}) {
@@ -45,6 +56,7 @@ class Searchbar extends Component {
     });
     return res.json();
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -61,11 +73,4 @@ class Searchbar extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    UpdateQuery: (query) => dispatch(UpdateQuery(query)),
-    UpdateResults: (results) => dispatch(UpdateResults(results)),
-  };
-};
-
-export default connect(mapDispatchToProps)(Searchbar);
+export default withRouter(Searchbar);
