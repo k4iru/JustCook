@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './components/Home/Home';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import Cart from './components/Cart/Cart'
 
 import { connect } from "react-redux";
 
@@ -31,8 +32,8 @@ function App() {
           <Route path="/favourites">
             <Recipes />
           </Route>
-          <Route path="/cart">
-            <Home />
+          <Route path="/Cart">
+            <Cart />
           </Route>
           <Route path="/" >
             <Home />

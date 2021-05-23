@@ -66,7 +66,8 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 // find the specific item in the cart, then set the quantity of the item to be whatever is send in the payload. Otherwise, return the item.
-                cart: state.cart.map(item => item.id === action.payload.id ? {...item, qty: action.payload.qty} : item) 
+                // adding the "+" before the action.payload.qty changes the value to an integer
+                cart: state.cart.map(item => item.id === action.payload.id ? {...item, qty: +action.payload.qty} : item) 
             }
         case actionTypes.LOAD_CURRENT_ITEM:
             return {

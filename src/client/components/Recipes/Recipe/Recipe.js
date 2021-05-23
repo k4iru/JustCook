@@ -9,7 +9,7 @@ import {
   addToCart,
 } from "../../../redux/Shopping/shopping-actions";
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
 
     <div className={styles.product}>
