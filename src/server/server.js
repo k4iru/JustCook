@@ -1,14 +1,15 @@
 require('dotenv').config();
-const https = require('https');
 const path = require('path');
 const express = require('express');
 
 const app = express();
+// middleware to handle json 
 app.use(express.json());
 
-// create a .env file with API_KEY=YOUR-API-KEY
-const api_key = process.env.API_KEY;
+// serve client files using absolute path
+app.use(express.static(path.join(__dirname, 'dist')));
 
+<<<<<<< Updated upstream
 // serve files in dist folder (this is the client)
 app.use(express.static('dist'));
 
@@ -79,6 +80,12 @@ app.get("/api/fetch", (req, res) => {
 app.get('/api/test', (req, res) => {
     res.json({test: 'test'});
 });
+=======
+// routes
+// add api routes to the routes folder and require them here while passing the app
+require('./routes/test')(app);
+require('./routes/search')(app);
+>>>>>>> Stashed changes
 
 app.listen(process.env.PORT || 8080, () => {
     console.log(`listening on port: ${process.env.PORT}`);

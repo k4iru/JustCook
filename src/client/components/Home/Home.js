@@ -32,7 +32,21 @@ function Home() {
         <Searchbar />
       </div>
       <div className="home-recipes">
+<<<<<<< Updated upstream
         <HomeRecipes />
+=======
+        {HomeItems.map((item, index) => {
+            return (
+              <div key={item.title}className="recipe-previews">
+                <Link to="/recipe">
+                <img src={item.imgSrc}></img>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+                </Link>
+              </div>
+            )
+          })}
+>>>>>>> Stashed changes
       </div>
     </div>
       

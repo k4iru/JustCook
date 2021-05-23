@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import "./searchbar.css";
 
+import { connect } from "react-redux";
+import {
+  UpdateQuery,
+  UpdateResults,
+} from "../../redux/Search/search-actions";
+
 class Searchbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+     this.state = { 
+      value: "",
+  results: [], };
 
     // bind this
     this.handleChange = this.handleChange.bind(this);
@@ -53,4 +61,11 @@ class Searchbar extends Component {
   }
 }
 
-export default Searchbar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    UpdateQuery: (query) => dispatch(UpdateQuery(query)),
+    UpdateResults: (results) => dispatch(UpdateResults(results)),
+  };
+};
+
+export default connect(null, Searchbar)(Searchbar);
