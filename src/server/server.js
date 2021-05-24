@@ -14,6 +14,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 require('./routes/test')(app);
 require('./routes/search')(app);
 
+// TODO
+require('./routes/login')(app);
+require('./routes/register')(app);
+require('./routes/favourite')(app);
+
 app.listen(process.env.PORT || 8080, () => {
     console.log(`listening on port: ${process.env.PORT}`);
 });
