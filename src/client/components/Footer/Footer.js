@@ -11,9 +11,9 @@ import './Footer.css';
                      {FooterItems.map((item, index) => {
                          return (
                             <li key={index}>
-                                <Link className={item.cName} to={item.url}>
+                                <a className={item.cName} href={item.url} target="_blank">
                                     {item.title}
-                                </Link>
+                                </a>
                             </li>
                         )
                      })}
