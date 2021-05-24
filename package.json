@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "mongodb": "^3.6.8",
