@@ -33,7 +33,7 @@ class Searchbar extends Component {
     }).then(d => {
       //console.log('this state results: ' + this.state.results)
       this.props.history.push({
-        pathname: "/recipe",
+        pathname: "/recipes",
         state: {
           results: this.state.results,
         },
