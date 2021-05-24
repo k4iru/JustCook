@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import styles from "./Recipe.css";
+import singleItem from "../../SingleItem/SingleItem";
 
 // Redux
 import { connect } from "react-redux";
@@ -8,6 +9,7 @@ import {
   loadCurrentItem,
   addToCart,
 } from "../../../redux/Shopping/shopping-actions";
+import SingleItem from "../../SingleItem/SingleItem";
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
@@ -26,7 +28,8 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
       </div>
 
       <div className={styles.product__buttons}>
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/Recipe/${product.id}`}>
+        {/* <Link to={`/SingleItem/${product.id}`}> */}
           <button
             onClick={() => loadCurrentItem(product)}
             className={`${styles.buttons__btn} ${styles.buttons__view}`}

@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './components/Home/Home';
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-import Cart from './components/Cart/Cart'
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Cart from './components/Cart/Cart';
+import SingleItem from './components/SingleItem/SingleItem';
 
 import { connect } from "react-redux";
 
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/" >
             <Home />
+          </Route>
+          <Route path="Recipe/1" >
+            <SingleItem />
           </Route>
         </Switch>
         <Footer />
