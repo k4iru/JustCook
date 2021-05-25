@@ -1,8 +1,8 @@
 import * as actionTypes from "./search-types";
 
 const INITIAL_STATE = {
-  query: "",
-  results: [],
+  query: "test",
+  results: ['test'],
 };
 
 const searchReducer = (state = INITIAL_STATE, action) => {

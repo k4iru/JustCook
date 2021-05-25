@@ -1,78 +1,84 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+//import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { UpdateQuery, UpdateResults } from "../../redux/Search/search-actions";
+import { useHistory } from "react-router-dom";
 import "./searchbar.css";
 
-class Searchbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "",
-      results: [],
-    };
+// destructure state and dispatch actions from store
+const Searchbar = ({ query, UpdateQuery, UpdateResults }) => {
+  let history = useHistory();
 
-    // bind this
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
-
-  // split post body for queries, options, etc
-  handleSubmit(e) {
-    e.preventDefault();
-    let res = this.search("/api/search", {
-      query: this.state.value,
-      options: "another test",
-    });
-    res.then((data) => {
-      this.setState({
-        results: data.results,
-      });
-    }).then(d => {
-      //console.log('this state results: ' + this.state.results)
-      this.props.history.push({
-        pathname: "/recipes",
-        state: {
-          results: this.state.results,
+  // get search results
+  const getResults = async (url, payload = {}) => {
+    try {
+      // request headers
+      // add the payload  to the request body
+      const response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
         },
-      })
+        body: JSON.stringify(payload),
+      });
+
+      const data = response.json();
+
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // on form submit make call to backend server to obfuscate api_key from spoonacular
+  // TODO add other form inputs to add more options and pass all options as an object in payload
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let { results } = await getResults("/api/search", {
+      query: query,
+      options: "test-options",
     });
+    UpdateResults(results);
 
-    //console.log(this.state.results);
-  }
+    // redirect
+    history.push("/recipes");
+  };
 
-  async search(url = "", data = {}) {
-    const res = await fetch(url, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return res.json();
-  }
+  // update state on change
+  const onChange = (e) => {
+    UpdateQuery(e.target.value);
+  };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="search">Search Bar</label>
-        <input
-          className="search-input"
-          name="search"
-          type="text"
-          placeholder="Search Meals..."
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <input className="search-btn" type="submit" value="Search" />
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={onSubmit}>
+      <label htmlFor="search">Search Bar</label>
+      <input
+        className="search-input"
+        name="search"
+        type="text"
+        placeholder="Search Meals..."
+        value={query}
+        onChange={onChange}
+      />
+      <input className="search-btn" type="submit" value="Search" />
+    </form>
+  );
+};
 
-export default withRouter(Searchbar);
+const mapStateToProps = (state) => {
+  return {
+    query: state.search.query,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    UpdateQuery: (query) => dispatch(UpdateQuery(query)),
+    UpdateResults: (results) => dispatch(UpdateResults(results)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);
