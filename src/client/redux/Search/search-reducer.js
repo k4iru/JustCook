@@ -10,13 +10,13 @@ const searchReducer = (state = INITIAL_STATE, action) => {
     case actionTypes.UPDATE_QUERY:
       return {
         ...state,
-        query: 'aaa',
+        query: action.payload,
       };
 
     case actionTypes.UPDATE_RESULTS:
       return {
         ...state,
-        results: 'tes',
+        results: action.payload,
       };
     default:
       return state;
