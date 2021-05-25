@@ -40,3 +40,11 @@ export const loadCurrentItem = (item) => {
         payload: item,
     }
 }
+
+export const UpdateRecipeList = (recipes) => {
+    console.log("recipe shopping action >>> " + recipes);
+    return {
+      type: actionTypes.UPDATE_RECIPE_LIST,
+      payload: recipes,
+    };
+}

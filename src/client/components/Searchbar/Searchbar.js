@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import { UpdateQuery, UpdateResults } from "../../redux/Search/search-actions";
 import { useHistory } from "react-router-dom";
 import "./searchbar.css";
+import { UpdateRecipeList } from "../../redux/Shopping/shopping-actions";
 
 // destructure state and dispatch actions from store
-const Searchbar = ({ query, UpdateQuery, UpdateResults }) => {
+const Searchbar = ({ query, UpdateQuery, UpdateResults, UpdateRecipeList }) => {
   let history = useHistory();
 
   // get search results
@@ -42,6 +43,8 @@ const Searchbar = ({ query, UpdateQuery, UpdateResults }) => {
       options: "test-options",
     });
     UpdateResults(results);
+    console.log(results);
+    UpdateRecipeList(results);
 
     // redirect
     history.push("/recipes");
@@ -78,6 +81,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     UpdateQuery: (query) => dispatch(UpdateQuery(query)),
     UpdateResults: (results) => dispatch(UpdateResults(results)),
+    UpdateRecipeList: (recipes) => dispatch(UpdateRecipeList(recipes)),
   };
 };
 

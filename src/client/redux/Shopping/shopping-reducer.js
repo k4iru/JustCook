@@ -19,6 +19,13 @@ const INITIAL_STATE = {
             image:
                 "https://www.culinaryhill.com/wp-content/uploads/2016/06/Easy-Garden-Salad-Recipe-Culinary-Hill-HR-06SQ.jpg",
         },
+        {
+            id: 632573,
+            title: "Apple Pie Bars",
+            image: "https://spoonacular.com/recipeImages/632573-312x231.jpg",
+            description: "This is the description for the garden salad recipe",
+            price: 5.00,
+        },
     ], // {id, title, description, price, img}
     cart: [], // {id, title, description, price, img, qty}
     currentItem: null,
@@ -74,6 +81,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 // set the current item state to be equal to the value provided through the action.payload
                 currentItem: action.payload, 
+            };
+        case actionTypes.UPDATE_RECIPE_LIST:
+            return {
+                ...state,
+                // set the current item state to be equal to the value provided through the action.payload
+                recipes: action.payload, 
             };
         default:
             return state;

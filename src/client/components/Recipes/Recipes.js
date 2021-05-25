@@ -29,5 +29,6 @@ const mapStateToProps = (state) => {
   };
 };
 
+
 // connect function passed in as a "Higher Order Component"
 export default connect(mapStateToProps)(Recipes);
