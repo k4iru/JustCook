@@ -17,7 +17,6 @@ import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
          return(
                 <header>
                     <nav className="HeaderItems">
-                        <FontAwesomeIcon icon={faTimes} />
                         <Link to="/" className="header-logo-link"><h1 className="header-logo">JustCook</h1></Link>
                         <div className="menu-icon" onClick={this.handleClick}>
 
