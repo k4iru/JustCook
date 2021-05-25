@@ -38,7 +38,7 @@ const Navbar = ({ cart }) => {
                         )
                     })}
                     <li>
-                    <Link className={"header-links"} to="/Cart">
+                    <Link className={"header-links"} to="/cart">
                         <div >
                             <h3 className={"test"}>Cart</h3>
                             <img

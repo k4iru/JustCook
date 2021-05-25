@@ -27,7 +27,7 @@ function App({ current }) {
 
           <Route exact path="/favourites" component={Recipes} />
 
-          <Route exact path="/cart" component={Home} />
+          <Route exact path="/cart" component={Cart} />
 
           <Route exact path="/" component={Home} />
             

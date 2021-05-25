@@ -15,7 +15,7 @@ class HomeRecipes extends Component {
     const headers = { "Content-Type": "application/json" };
     // Simple GET request using fetch
     fetch(
-      "https://api.spoonacular.com/recipes/random?apiKey=16d4e583d0e74c709a5598cd30b4798b&number=6",
+      "https://api.spoonacular.com/recipes/random?apiKey=4e775e84b8b047b0816e621e527af46d&number=6",
       { headers },
     )
       .then((response) => response.json())
