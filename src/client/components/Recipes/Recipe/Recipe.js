@@ -19,6 +19,7 @@ const Product = ({ product, addToCart }) => {
         alt={product.title}
       />
 
+      {/* the results returned by the api call dont have these fields. TODO change call to something that gives more info */}
       <div className={styles.product__details}>
         <p className={styles.details__title}>{product.title}</p>
         <p className={styles.details__desc}>{product.description}</p>

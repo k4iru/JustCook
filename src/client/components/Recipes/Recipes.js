@@ -6,11 +6,12 @@ import { connect } from "react-redux";
 import Recipe from './Recipe/Recipe';
 
 
-const Recipes = ({ recipes }) => {
+const Recipes = ({ recipes, results }) => {
+  console.log(results);
   return (
     <div className="test">
       
-      {recipes.map((recipe) => (
+      {results.map((recipe) => (
         <Recipe key={recipe.id} product={recipe} />
       ))}
     </div>
@@ -23,6 +24,7 @@ const mapStateToProps = (state) => {
     // because we want a collection of all the products
     // state.shop.products - telling react redux to get the value from the state, then the store from the rootReducer file which then refers to whatever state is in the shopping reducer file
     recipes: state.shop.recipes,
+    results: state.search.results,
     // we now have access to the products inside of our props
   };
 };
