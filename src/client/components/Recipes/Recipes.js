@@ -19,7 +19,7 @@ const Recipes = ({ recipes }) => {
 
 
 // Allows us to choose what state in our redux store that this component has access to.  
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         // because we want a collection of all the products
         // state.shop.products - telling react redux to get the value from the state, then the store from the rootReducer file which then refers to whatever state is in the shopping reducer file

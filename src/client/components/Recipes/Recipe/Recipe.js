@@ -9,7 +9,6 @@ import {
   loadCurrentItem,
   addToCart,
 } from "../../../redux/Shopping/shopping-actions";
-import SingleItem from "../../SingleItem/SingleItem";
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
@@ -28,11 +27,11 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
       </div>
 
       <div className={styles.product__buttons}>
-        <Link to={`/Recipe/${product.id}`}>
+        <Link to={`/recipe/${product.id}`}>
         {/* <Link to={`/SingleItem/${product.id}`}> */}
           <button
             onClick={() => loadCurrentItem(product)}
-            className={`${styles.buttons__btn} ${styles.buttons__view}`}
+            // className={`${styles.buttons__btn} ${styles.buttons__view}`}
           >
             View Item
           </button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -9,9 +9,9 @@ import SingleItem from './components/SingleItem/SingleItem';
 import { connect } from "react-redux";
 
 import Recipes from './components/Recipes/Recipes';
+import Users from './components/Users/Users';
 
-
-function App() {
+function App({ current }) {
   return (
 
     <Router>
@@ -24,9 +24,9 @@ function App() {
           <Route path="/register">
             <Home />
           </Route>
-          <Route path="/recipe">
+          {/* <Route exact path="/recipe">
             <Recipes />
-          </Route>
+          </Route> */}
           <Route path="/login">
             <Home />
           </Route>
@@ -36,10 +36,11 @@ function App() {
           <Route path="/Cart">
             <Cart />
           </Route>
-          <Route path="/" >
+          <Route exact path="/" >
             <Home />
+            {/* <Users /> */}
           </Route>
-          <Route path="Recipe/1" >
+          <Route exact path="/recipe/:id" >
             <SingleItem />
           </Route>
         </Switch>
