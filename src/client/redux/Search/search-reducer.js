@@ -1,26 +1,26 @@
-import * as actionTypes from './search-types';
+import * as actionTypes from "./search-types";
 
 const INITIAL_STATE = {
-    query: '',
-    results: [],
+  query: "test",
+  results: ['test'],
 };
 
 const searchReducer = (state = INITIAL_STATE, action) => {
-    switch(action.type) {
-        case actionTypes.UPDATE_QUERY:
-            return {
-                ...state,
-                query: action.query
-            }
+  switch (action.type) {
+    case actionTypes.UPDATE_QUERY:
+      return {
+        ...state,
+        query: action.payload,
+      };
 
-        case actionTypes.UPDATE_RESULTS:
-            return {
-                ...state,
-                results: action.results
-            }
-            default: return state;
-    }
-
+    case actionTypes.UPDATE_RESULTS:
+      return {
+        ...state,
+        results: action.payload,
+      };
+    default:
+      return state;
+  }
 };
 
-export default searchReducer
+export default searchReducer;

@@ -9,11 +9,9 @@ import SingleItem from './components/SingleItem/SingleItem';
 import { connect } from "react-redux";
 
 import Recipes from './components/Recipes/Recipes';
-import Users from './components/Users/Users';
 
 function App({ current }) {
   return (
-
     <Router>
       <div>
         <Header />
@@ -21,25 +19,18 @@ function App({ current }) {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/register">
-            <Home />
-          </Route>
-          {/* <Route exact path="/recipe">
-            <Recipes />
-          </Route> */}
-          <Route path="/login">
-            <Home />
-          </Route>
-          <Route path="/favourites">
-            <Recipes />
-          </Route>
-          <Route path="/Cart">
-            <Cart />
-          </Route>
-          <Route exact path="/" >
-            <Home />
-            {/* <Users /> */}
-          </Route>
+          <Route exact path="/register" component={Home} />
+
+          <Route exact path="/recipes" component={Recipes} />
+
+          <Route exact path="/login" component={Home} />
+
+          <Route exact path="/favourites" component={Recipes} />
+
+          <Route exact path="/cart" component={Home} />
+
+          <Route exact path="/" component={Home} />
+            
           <Route exact path="/recipe/:id" >
             <SingleItem />
           </Route>

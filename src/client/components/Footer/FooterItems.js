@@ -1,16 +1,16 @@
 export const FooterItems = [
     {
-        title: 'Link 1',
-        url : '#',
+        title: 'Spoonacular API',
+        url : 'https://spoonacular.com/food-api/docs',
         cName : 'footer-links'
     },
     {
-        title: 'Link 2',
-        url : '#',
+        title: 'GitHub',
+        url : 'https://github.com/k4iru/JustCook',
         cName : 'footer-links'
     },
     {
-        title: 'Link 3',
+        title: 'The Team',
         url : '#',
         cName : 'footer-links'
     }

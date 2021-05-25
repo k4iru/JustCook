@@ -2,17 +2,21 @@
     width: 100%;
     height: 75vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("https://techcrunch.com/wp-content/uploads/2015/11/grocery_being_delivered_instacart.jpg");
-    /* background-image: url("./1-main-image.png"); */
+    background-image: url("./1-main-image.png");
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 150%;
+    background-position: center center;
+    background-size: cover;
 }
 
 .banner h2{
     font-size: 4em;
+    color: white;
+}
+
+.banner p{
     color: white;
 }
 
@@ -32,11 +36,16 @@
 
 .home-recipes{
     height: 100%;
-    padding: 5em 0 10em 0;
+    padding: 0 0 10em 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.home-recipes h2{
+    width: 100%;
+    text-align: center;
 }
 
 .home-recipes a{
@@ -49,13 +58,24 @@
     width: 300px;
     text-align: center;
     border-radius: 15px;
-    box-shadow: 0 0 10px 2px rgb(196, 196, 196);
+    transition: 200ms ease-in-out;
+    background-color: var(--navy-blue);
 }
 
+.recipe-previews:hover{
+    cursor: pointer;
+    box-shadow: 0 0 20px 3px rgb(196, 196, 196);
+}
+
+
 .recipe-previews h3{
+    min-height: 58px;
     background-color: var(--navy-blue);
     color: var(--yellow);
-    padding: 0.25em 0;
+    padding: 0.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .recipe-previews img{
@@ -73,5 +93,41 @@
 }
 
 input{
-    color: red;
+    margin: 0 0.5em;
+}
+
+.search-bar{
+    background-image: url("./blob.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60% 100%;
+    height: 45vh;
+}
+
+.search-input{
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    height: 100%;
+    padding: 0.5em 1em;
+}
+
+.search-btn{
+    color: white;
+    background-color: var(--navy-blue);
+    border: none;
+    border-radius: 20px;
+    padding: 0.5em 1em;
+}
+
+#replace{
+    padding: 0 13em 5em 13em;
+}
+
+
+@media screen and (max-width: 1519px){
+
+    #replace{
+        padding: 0 0 5em 0;
+    }
+
 }

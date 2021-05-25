@@ -1,65 +1,78 @@
 import React, { Component } from "react";
+//import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { UpdateQuery, UpdateResults } from "../../redux/Search/search-actions";
+import { useHistory } from "react-router-dom";
 import "./searchbar.css";
 
-import { connect } from "react-redux";
-import {
-  UpdateQuery,
-  UpdateResults,
-} from "../../redux/Search/search-actions";
+// destructure state and dispatch actions from store
+const Searchbar = ({ query, UpdateQuery, UpdateResults }) => {
+  let history = useHistory();
 
-class Searchbar extends Component {
-  constructor(props) {
-    super(props);
-     this.state = { 
-      value: "",
-  results: [], };
+  // get search results
+  const getResults = async (url, payload = {}) => {
+    try {
+      // request headers
+      // add the payload  to the request body
+      const response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    // bind this
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+      const data = response.json();
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  // split post body for queries, options, etc
- handleSubmit(e) {
-    let res = this.search('/api/search', {'query': this.state.value, 'options': 'another test'});
-    res.then(data => {
-      console.log(data.results);
-    });
+  // on form submit make call to backend server to obfuscate api_key from spoonacular
+  // TODO add other form inputs to add more options and pass all options as an object in payload
+  const onSubmit = async (e) => {
     e.preventDefault();
-  }
-
-  async search(url = "", data = {}) {
-    const res = await fetch(url, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+    let { results } = await getResults("/api/search", {
+      query: query,
+      options: "test-options",
     });
-    return res.json();
-  }
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="search">Search Bar</label>
-        <input
-          name="search"
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Search" />
-      </form>
-    );
-  }
-}
+    UpdateResults(results);
+
+    // redirect
+    history.push("/recipes");
+  };
+
+  // update state on change
+  const onChange = (e) => {
+    UpdateQuery(e.target.value);
+  };
+
+  return (
+    <form onSubmit={onSubmit}>
+      <label htmlFor="search">Search Bar</label>
+      <input
+        className="search-input"
+        name="search"
+        type="text"
+        placeholder="Search Meals..."
+        value={query}
+        onChange={onChange}
+      />
+      <input className="search-btn" type="submit" value="Search" />
+    </form>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    query: state.search.query,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -68,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapDispatchToProps)(Searchbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);
