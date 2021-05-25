@@ -13,10 +13,11 @@ export const HeaderItems = [
         title: 'Favourites',
         url : '/favourites',
         cName : 'header-links'
-    },
-    {
-        title: 'Cart',
-        url : '/cart',
-        cName : 'header-links'
     }
+    // ,
+    // {
+    //     title: 'Cart',
+    //     url : '/cart',
+    //     cName : 'header-links'
+    // }
 ]

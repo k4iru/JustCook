@@ -1,14 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import Home from './components/Home/Home';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Cart from './components/Cart/Cart';
+import SingleItem from './components/SingleItem/SingleItem';
 
 import { connect } from "react-redux";
 
-import Recipes from "./components/Recipes/Recipes";
+import Recipes from './components/Recipes/Recipes';
 
-function App() {
+function App({ current }) {
   return (
     <Router>
       <div>
@@ -28,6 +30,10 @@ function App() {
           <Route exact path="/cart" component={Home} />
 
           <Route exact path="/" component={Home} />
+            
+          <Route exact path="/recipe/:id" >
+            <SingleItem />
+          </Route>
         </Switch>
         <Footer />
       </div>
