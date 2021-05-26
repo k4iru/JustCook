@@ -5,6 +5,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart/Cart';
 import SingleItem from './components/SingleItem/SingleItem';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 import { connect } from "react-redux";
 
@@ -19,11 +21,11 @@ function App({ current }) {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/register" component={Home} />
+          <Route exact path="/register" component={Register} />
 
           <Route exact path="/recipes" component={Recipes} />
 
-          <Route exact path="/login" component={Home} />
+          <Route exact path="/login" component={Login} />
 
           <Route exact path="/favourites" component={Recipes} />
 

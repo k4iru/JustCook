@@ -13,7 +13,7 @@ module.exports = {
     open: true,
     /* run node server on port 8080 to proxy api requests */
     proxy: {
-      "/api": "http://localhost:8080",
+      "/api": "http://localhost:8081",
     },
   },
   plugins: [

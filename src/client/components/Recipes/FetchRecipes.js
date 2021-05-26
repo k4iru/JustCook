@@ -15,7 +15,7 @@ class HomeRecipes extends Component {
     const headers = { "Content-Type": "application/json" };
     // Simple GET request using fetch
     fetch(
-      "https://api.spoonacular.com/recipes/random?apiKey=4e775e84b8b047b0816e621e527af46d&number=6",
+      "https://api.spoonacular.com/recipes/random?apiKey=6c1b18be8a9e4491b41b8f01d02a9299&number=6",
       { headers },
     )
       .then((response) => response.json())
@@ -26,11 +26,11 @@ class HomeRecipes extends Component {
         var recipeList = "";
     
         for(let i in data.recipes) {
-          recipeList += "<div class='recipe-previews'>"+data.recipes[i].id+"'>";
+          recipeList += "<button onClick={this.onClickHandler()} class='recipe-previews'>"+data.recipes[i].id;
           recipeList += "<img src='"+data.recipes[i].image+"' height='200'/>";
           recipeList += "<h3>"+data.recipes[i].title+"</h3>";
           recipeList += "<p>"+data.recipes[i].summary+"</p>";
-          recipeList += "</div><a>";
+          recipeList += "</button>";
           this.setState ({ data });
         }
         document.getElementById("replace").innerHTML = recipeList;
@@ -43,11 +43,8 @@ class HomeRecipes extends Component {
 
   render() {
     return (
-      <button onClick={this.onClickHandler}>
         <div id="replace">
         </div>
-      </button>
-
     );
   } //end of render
   

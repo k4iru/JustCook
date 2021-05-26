@@ -1,0 +1,35 @@
+.search-recipe-page{
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.search-result{
+    margin-bottom: 3em;
+    max-width: 312px;
+    border-bottom: 1px solid (--red);
+}
+
+.search-result img{
+    border-radius: 25px 10px 25px 10px;
+}
+
+.recipe-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.recipe-buttons button{
+    border: none;
+    background-color: var(--navy-blue);
+    color: var(--yellow);
+    padding: 0.5em 0.75em;
+    border-radius: 15px;
+    transition: 200ms;
+}
+
+.recipe-buttons button:hover{
+    cursor: pointer;
+    background-color: var(--blue);
+}

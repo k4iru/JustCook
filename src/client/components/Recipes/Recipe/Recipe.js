@@ -13,7 +13,7 @@ import {
 const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
 
-    <div className={styles.product}>
+    <div className={styles.product} className="search-result">
       <img
         className={styles.product__image}
         src={product.image}
@@ -21,13 +21,13 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
       />
 
       {/* the results returned by the api call dont have these fields. TODO change call to something that gives more info */}
-      <div className={styles.product__details}>
-        <p className={styles.details__title}>{product.title}</p>
+      <div className={styles.product__details} className="recipe-details">
+        <h2 className={styles.details__title}>{product.title}</h2>
         <p className={styles.details__desc}>{product.description}</p>
         <p className={styles.details__price}>$ {product.price} </p>
       </div>
 
-      <div className={styles.product__buttons}>
+      <div className={styles.product__buttons} className="recipe-buttons">
         <Link to={`/recipe/${product.id}`}>
         {/* <Link to={`/SingleItem/${product.id}`}> */}
           <button

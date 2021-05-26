@@ -9,7 +9,7 @@ import Recipe from './Recipe/Recipe';
 const Recipes = ({ recipes, results }) => {
   console.log(results);
   return (
-    <div className="test">
+    <div className="search-recipe-page">
       
       {results.map((recipe) => (
         <Recipe key={recipe.id} product={recipe} />
