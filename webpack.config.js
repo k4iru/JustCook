@@ -1,4 +1,5 @@
 /* use webpack to bundle and transpile the client */
+require('dotenv').config();
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -13,7 +14,7 @@ module.exports = {
     open: true,
     /* run node server on port 8080 to proxy api requests */
     proxy: {
-      "/api": "http://localhost:8081",
+      "/api": `http://localhost:${process.env.PORT}`,
     },
   },
   plugins: [
