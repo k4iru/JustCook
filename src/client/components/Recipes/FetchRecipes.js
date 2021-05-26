@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+
+
 class HomeRecipes extends Component {
   constructor(props) {
     super(props);
@@ -7,11 +9,9 @@ class HomeRecipes extends Component {
     this.state = {
       recipes: [],
     };
-
-    this.getRandomRecipes = this.getRandomRecipes.bind(this);
   }
 
-  async getRandomRecipes() {
+  async componentDidMount() {
     const headers = { "Content-Type": "application/json" };
     // Simple GET request using fetch
     fetch(
@@ -21,36 +21,52 @@ class HomeRecipes extends Component {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+           
 
         var recipeList = "";
     
         for(let i in data.recipes) {
-          recipeList += "<a href='Recipe.js?id="+data.recipes[i].id+"'><div class='recipe-previews'>";
+          recipeList += "<div class='recipe-previews'>"+data.recipes[i].id+"'>";
           recipeList += "<img src='"+data.recipes[i].image+"' height='200'/>";
           recipeList += "<h3>"+data.recipes[i].title+"</h3>";
           recipeList += "<p>"+data.recipes[i].summary+"</p>";
           recipeList += "</div><a>";
+          this.setState ({ data });
         }
         document.getElementById("replace").innerHTML = recipeList;
-        //return data;
+        
       })
       .catch(() => {
         console.log("error");
       });
   }
 
-  async componentDidMount() {
-    const recipes = await this.getRandomRecipes();
-    this.setState({ recipes });
-  }
-
   render() {
     return (
+      <button onClick={this.onClickHandler}>
         <div id="replace">
         </div>
+      </button>
+
     );
-  }
+  } //end of render
+  
+  onClickHandler = () => {
+    <div class="recipe-previews">
+      <p>Test</p>
+    </div>
+    //able to retrieve id if specified array ex: this.state.data.recipes[1].id
+    console.log(this.state.data.recipes.title);
+    //once ID is retrieved, assign ID to variable
+    // let clickID = this.state.data.recipes.id
+    //pass variable through api call: https://api.spoonacular.com/recipes/{$clickID}/information
+    //extract data: title, image, readyinminutes, extendedingredients
+    //render data 
+  };
 }
+
+
+
 
 export default HomeRecipes;
 
