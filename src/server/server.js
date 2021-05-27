@@ -7,11 +7,9 @@ const app = express();
 app.use(express.json());
 
 // serve client files using absolute path
-app.use(express.static(path.join(__dirname, 'dist')));
+// dist file is not in this folder, go up 2 levels
+app.use(express.static(path.join(__dirname, '../../dist')));
 
-app.get('/', (req, res) => {
-    res.send('hello');
-});
 
 // routes
 // add api routes to the routes folder and require them here while passing the app
