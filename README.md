@@ -31,3 +31,8 @@ JustCook is a Full Stack React Application built for the busy professional that 
 * Built search bar in new functional React component syntax using Redux for state management
 * Deployment on a private Linux Server with nginx
 * DNS and SSL management 
+
+### Adam Galek
+* Implemented State using Redux
+* Built shopping cart functionality in React Higher-Order Components syntax using Redux for state management
+* Created React components to display a list of recipes, and a specific recipe based off of the state of the application
