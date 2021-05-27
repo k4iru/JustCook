@@ -4,15 +4,15 @@ Check it out [here.](https://justcook.live/)
 
 # Description
 
-JustCook is a Full Stack React Application built for the busy professional that loves to cook, but is too busy to go shopping. Users are able to search from a wide variety of recipes pulled from the [Spoonacular API](https://spoonacular.com/) and add them to their cart. From there, users can checkout their cart and the ingredients needed along with recipe instructions will be shipped out.
+JustCook is a Full Stack React Application built for the busy professional that loves to cook, but is too busy to go shopping. Users are able to search from a wide variety of recipes pulled from the [Spoonacular API](https://spoonacular.com/) and add them to their cart. From there, users can checkout their cart and the ingredients needed along with recipe instructions will be shipped to them.
 
 ![Wireframe](https://github.com/k4iru/JustCook/tree/main/template/Main-Page.png)
 
-# Techonology
+# Technology
 * `React`
 * `Express`
 * `Node`
-* `Mongodb`
+* `MongoDB`
 * `Redux`
 
 # Instructions
@@ -27,7 +27,7 @@ JustCook is a Full Stack React Application built for the busy professional that 
 
 ### Kyle Cheung - Team Lead
 * Bootstrapped project using my [Full Stack React Template](https://github.com/k4iru/fs-javascript-template)
-* Implemented API on the backend to obfuscate API keys
+* Implemented Rest API on the backend
 * Built search bar in new functional React component syntax using Redux for state management
 * Deployment on a private Linux Server with nginx
 * DNS and SSL management 
