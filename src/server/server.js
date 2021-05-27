@@ -9,6 +9,10 @@ app.use(express.json());
 // serve client files using absolute path
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.get('/', (req, res) => {
+    res.send('hello');
+});
+
 // routes
 // add api routes to the routes folder and require them here while passing the app
 require('./routes/test')(app);
