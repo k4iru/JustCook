@@ -25,7 +25,7 @@ JustCook is a Full Stack React Application built for the busy professional that 
 
 # Contributions
 
-## Kyle Cheung - Team Lead
+### Kyle Cheung - Team Lead
 * Bootstrapped project using my [Full Stack React Template](https://github.com/k4iru/fs-javascript-template)
 * Implemented API on the backend to obfuscate API calls
 * Built search bar in new functional React component syntax using Redux for state management
