@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+
 
 
 
@@ -34,11 +37,12 @@ class HomeRecipes extends Component {
           this.setState ({ data });
         }
         document.getElementById("replace").innerHTML = recipeList;
-        
+        this.onClickHandler();
       })
       .catch(() => {
         console.log("error");
       });
+
   }
 
   render() {
@@ -46,21 +50,19 @@ class HomeRecipes extends Component {
         <div id="replace">
         </div>
     );
-  } //end of render
+  } //end of render 
   
-  onClickHandler = () => {
-    <div class="recipe-previews">
-      <p>Test</p>
-    </div>
-    //able to retrieve id if specified array ex: this.state.data.recipes[1].id
-    console.log(this.state.data.recipes.title);
-    //once ID is retrieved, assign ID to variable
-    // let clickID = this.state.data.recipes.id
-    //pass variable through api call: https://api.spoonacular.com/recipes/{$clickID}/information
-    //extract data: title, image, readyinminutes, extendedingredients
-    //render data 
-  };
 }
+
+function onClickHandler() {
+  //able to retrieve id if specified array ex: this.state.data.recipes[1].id
+  console.log(this.state.data.recipes.title);
+  //once ID is retrieved, assign ID to variable
+  // let clickID = this.state.data.recipes.id
+  //pass variable through api call: https://api.spoonacular.com/recipes/{$clickID}/information
+  //extract data: title, image, readyinminutes, extendedingredients
+  //render data 
+};
 
 
 
