@@ -1,6 +1,6 @@
 
 module.exports = function (app) {
-    app.post("/api/favourite", (req, res) => {
-      
+    app.get("/api/favourite", (req, res) => {
+      res.send('favourote');
     });
   };
