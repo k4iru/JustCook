@@ -21,6 +21,7 @@ module.exports = function (app) {
       });
 
       // do error checking
+      // note to self. perform password hash and salt on server side. standard practice to send plain text passwords over https since TLS encrypts it still. hash before storage in database.
 
       const cookieHeaders = {
         maxAge: 60 * 60 * 1000 * 24, // 24 hours
