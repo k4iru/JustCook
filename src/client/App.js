@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 
 import Recipes from './components/Recipes/Recipes';
 
-function App({ current }) {
+const App = ({ current }) => {
   return (
     <Router>
       <div>
