@@ -10,6 +10,7 @@ module.exports = {
   devServer: {
     hotOnly: true,
     contentBase: "./dist",
+    historyApiFallback: true,
     port: 3000,
     open: true,
     /* run node server on port 8080 to proxy api requests */
@@ -26,6 +27,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: '/',
     clean: true,
   },
 
