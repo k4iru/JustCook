@@ -20,7 +20,7 @@
 }
 
 
-.login-form button{
+.btn {
     border: none;
     background-color: var(--navy-blue);
     color: white;
