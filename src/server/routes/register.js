@@ -54,7 +54,7 @@ module.exports = function (app) {
       // res.cookie("loggedIn", true, cookieHeaders);
       // res.cookie("id", `${newUser._id}`, cookieHeaders);
 
-      const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+      const token = jwt.sign({_id: user._id, username: user.username}, process.env.TOKEN_SECRET);
       res.header('authtoken', token).send(token);
       console.log(token);
       // res.json({ id: newUser._id, username: newUser.username });

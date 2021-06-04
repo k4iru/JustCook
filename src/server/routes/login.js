@@ -42,7 +42,7 @@ module.exports = function (app) {
 
     // create + assign token
 
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({_id: user._id, username: user.username}, process.env.TOKEN_SECRET);
     res.header('authtoken', token).send(token);
   });
 };
