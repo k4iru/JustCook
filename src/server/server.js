@@ -14,7 +14,6 @@ app.use(cookieParser());
 // dist file is not in this folder, go up 2 levels
 app.use(express.static(path.join(__dirname, '../../dist')));
 
-
 // routes
 // add api routes to the routes folder and require them here while passing the app
 require('./routes/test')(app);
