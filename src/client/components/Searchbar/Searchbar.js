@@ -26,7 +26,7 @@ const Searchbar = ({ query, UpdateQuery, UpdateResults, UpdateRecipeList }) => {
         body: JSON.stringify(payload),
       });
 
-      const data = response.json();
+      const data = await response.json();
 
       return data;
     } catch (err) {
