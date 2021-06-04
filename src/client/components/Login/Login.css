@@ -30,7 +30,7 @@
     font-size: 1em;
 }
 
-.login-form button:hover{
+.btn:hover{
     cursor: pointer;
     background-color: var(--blue);
 }
