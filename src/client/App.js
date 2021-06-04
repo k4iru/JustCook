@@ -7,7 +7,6 @@ import Cart from './components/Cart/Cart';
 import SingleItem from './components/SingleItem/SingleItem';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
-import jwt_decode from 'jwt-decode';
 
 import { connect } from "react-redux";
 
