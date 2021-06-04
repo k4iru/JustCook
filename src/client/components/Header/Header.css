@@ -36,6 +36,9 @@ h1{
 }
 
 .header-links{
+    font-size: 1em;
+    border: none;
+    background-color: transparent;
     text-decoration: none;
     color: white;
     transition: 200ms;

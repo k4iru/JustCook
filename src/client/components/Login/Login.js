@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { UpdateUser} from '../../redux/User/user-actions';
 import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -7,7 +9,7 @@ import "./Login.css";
 
 // switch from fetch to axios because fetch headers are iterable objects that dont appear unless explicity looped
 
-const Login = () => {
+const Login = ({user, UpdateUser}) => {
   let history = useHistory();
 
   // use react-hooks for forms for simplicity instead of redux
@@ -22,12 +24,15 @@ const Login = () => {
     // TODO handle status code 400, 409
     if (response.status === 200) {
       const token = response.data;
-      const user = jwt_decode(token);
-      console.log(user.username);
+      const authenticatedUser = jwt_decode(token);
+      //console.log(authenticatedUser.username);
 
       // session storage is cleared on page close. localstorage is kept with no expiration date
       // TODO set expiration for jwt
       sessionStorage.setItem("token", token);
+
+      // update user state
+      UpdateUser(authenticatedUser);
       history.push("/");
     }
     else {
@@ -75,4 +80,17 @@ const Login = () => {
   );
 };
 
-export default Login;
+// REDUX
+const mapStateToProps = (state) => {
+  return {
+    user: state.user.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    UpdateUser: (user) => dispatch(UpdateUser(user)),
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps )(Login);
