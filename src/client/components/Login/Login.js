@@ -18,10 +18,12 @@ const Login = () => {
     e.preventDefault(); // stop page refresh
 
     const response = await getData({ username: username, password: password });
+    
+    // TODO handle status code 400, 409
     if (response.status === 200) {
       const token = response.data;
       const user = jwt_decode(token);
-      console.log(user);
+      console.log(user.username);
 
       // session storage is cleared on page close. localstorage is kept with no expiration date
       // TODO set expiration for jwt
