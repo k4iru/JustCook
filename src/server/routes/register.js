@@ -42,15 +42,17 @@ module.exports = function (app) {
 
       const newUser = await user.save();
 
-      
-      // something must be going wrong here 
-      
+      // something must be going wrong here
+
       //https://stackoverflow.com/questions/62736676/how-do-i-set-authorization-bearer-header-with-nodejs
-      const token = jwt.sign({ _id: user._id, username: user.username },process.env.TOKEN_SECRET);
+      const token = jwt.sign(
+        { _id: user._id, username: user.username },
+        process.env.TOKEN_SECRET
+      );
 
       // Authorization is a request header try sending it from client instead.
       //res.setHeader('Authorization', `Bearer ${token}`);
-      res.json({token :token});
+      res.json({ token: token });
 
       // res.json({ id: newUser._id, username: newUser.username });
     } catch (err) {

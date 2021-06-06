@@ -26,15 +26,15 @@ const Register = ({ user, UpdateUser }) => {
       password: password,
     };
     const response = await getData(user);
-    // console.log(response);
+    console.log("response >>> " + response);
 
     // OK. TODO handle 409, 400 status codes
     if (response.status === 200) {
-      const token  = response.data.token;
-      console.log('token >>> ' + token);
+      const token = response.data.token;
+      console.log("token >>> " + token);
       // console.log('token >>> ' + token);
       const authenticatedUser = await jwt_decode(token);
-      console.log('authenticated user ' + authenticatedUser );
+      console.log("authenticated user " + authenticatedUser);
       sessionStorage.setItem("token", token);
       UpdateUser(authenticatedUser);
       history.push("/");
@@ -44,8 +44,13 @@ const Register = ({ user, UpdateUser }) => {
   };
 
   const getData = async (data) => {
+    const headers = {
+      "Content-Type": "application/json",
+    };
     try {
-      const response = await axios.post("/api/register", data);
+      const response = await axios.post("/api/register", data, {
+        headers: headers,
+      });
 
       return response;
     } catch (err) {
