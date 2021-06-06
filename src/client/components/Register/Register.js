@@ -48,6 +48,7 @@ const Register = ({ user, UpdateUser }) => {
   const getData = async (data) => {
     const headers = {
       "Content-Type": "application/json",
+      "Accept": "application/json"
     };
     try {
       const response = await axios.post("/api/register", data, {
