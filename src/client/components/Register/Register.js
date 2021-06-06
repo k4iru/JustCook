@@ -31,8 +31,8 @@ const Register = ({ user, UpdateUser }) => {
 
     // OK. TODO handle 409, 400 status codes
     if (response.status === 200) {
-      const token = response.data;
-      console.log(token);
+      const { token } = await response.json();
+      console.log(token.token);
       console.log("token >>> " + token);
       // console.log('token >>> ' + token);
       const authenticatedUser = await jwt_decode(token);
@@ -45,21 +45,44 @@ const Register = ({ user, UpdateUser }) => {
     }
   };
 
-  const getData = async (data) => {
-    const headers = {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    };
+  const getData = async (data = {}) => {
     try {
-      const response = await axios.post("/api/register", data, {
-        headers: headers,
+      // request headers
+      // add the payload  to the request body
+      const response = await fetch("/api/register", {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
+     
 
       return response;
     } catch (err) {
       console.log(err);
     }
   };
+
+  // const getData = async (data) => {
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //     "Accept": "application/json"
+  //   };
+  //   try {
+  //     const response = await axios.post("/api/register", data, {
+  //       headers: headers,
+  //     });
+
+  //     return response;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <div className="page">
