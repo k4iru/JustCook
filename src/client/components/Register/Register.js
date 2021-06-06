@@ -31,8 +31,10 @@ const Register = ({ user, UpdateUser }) => {
     // OK. TODO handle 409, 400 status codes
     if (response.status === 200) {
       const token  = response.data.token;
+      console.log('token >>> ' + token);
       // console.log('token >>> ' + token);
-      const authenticatedUser = jwt_decode(token);
+      const authenticatedUser = await jwt_decode(token);
+      console.log('authenticated user ' + authenticatedUser );
       sessionStorage.setItem("token", token);
       UpdateUser(authenticatedUser);
       history.push("/");
