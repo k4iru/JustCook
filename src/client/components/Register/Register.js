@@ -26,11 +26,13 @@ const Register = ({ user, UpdateUser }) => {
       password: password,
     };
     const response = await getData(user);
+    console.log(response);
     console.log("response >>> " + response);
 
     // OK. TODO handle 409, 400 status codes
     if (response.status === 200) {
-      const token = response.data.token;
+      const token = response.data;
+      console.log(token);
       console.log("token >>> " + token);
       // console.log('token >>> ' + token);
       const authenticatedUser = await jwt_decode(token);
