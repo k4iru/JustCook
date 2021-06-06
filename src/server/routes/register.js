@@ -18,7 +18,7 @@ module.exports = function (app) {
     const { error } = registerValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    // has password
+    // hash password
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(req.body.password, salt);
 
@@ -41,27 +41,15 @@ module.exports = function (app) {
       if (EmailExist) return res.status(409).send("Email Exists");
 
       const newUser = await user.save();
-      // do error checking
-      // note to self. perform password hash and salt on server side. standard practice to send plain text passwords over https since TLS encrypts it still. hash before storage in database.
 
-      // const cookieHeaders = {
-      //   maxAge: 60 * 60 * 1000, // expire cookies in 1 hour
-      //   // production settings secure needs https for local host
+      
+      // something must be going wrong here 
+      const token = jwt.sign({ _id: user._id, username: user.username },process.env.TOKEN_SECRET);
+      res.header("authtoken", token).send(token);
 
-      //   // httpOnly: true, // not changeable from client side
-      //   // secure: true, // need https
-      //   // sameSite: true, // same domain
-      // };
-      // res.cookie("loggedIn", true, cookieHeaders);
-      // res.cookie("id", `${newUser._id}`, cookieHeaders);
-
-      const token = jwt.sign({_id: user._id, username: user.username}, process.env.TOKEN_SECRET);
-      res.header('authtoken', token).send(token);
-      console.log(token);
       // res.json({ id: newUser._id, username: newUser.username });
-
     } catch (err) {
-      res.status(400).send(err);
+      res.send(err);
     }
   });
 };

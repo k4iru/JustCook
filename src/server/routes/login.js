@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const Users = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -42,7 +42,10 @@ module.exports = function (app) {
 
     // create + assign token
 
-    const token = jwt.sign({_id: user._id, username: user.username}, process.env.TOKEN_SECRET);
-    res.header('authtoken', token).send(token);
+    const token = jwt.sign(
+      { _id: user._id, username: user.username },
+      process.env.TOKEN_SECRET
+    );
+    res.header("authtoken", token).send(token);
   });
 };

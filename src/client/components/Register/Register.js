@@ -64,7 +64,7 @@ const Register = ({user, UpdateUser}) => {
             value={first}
             onChange={(e) => setFirst(e.target.value)}
             placeholder="First Name"
-            required="true"
+            required={true}
           />
           <input
             className="form-input"
