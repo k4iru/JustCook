@@ -49,7 +49,12 @@ module.exports = function (app) {
         { _id: user._id, username: user.username },
         process.env.TOKEN_SECRET,
         (err, token) => {
-          res.json({token: token});
+
+          let thing = {
+            "token": token
+          }
+          console.log(thing)
+          res.json(thing);
         }
       );
 

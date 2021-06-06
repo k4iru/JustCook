@@ -26,6 +26,7 @@ module.exports = function (app) {
       
       // then send the json to client
       .then((json) => {
+        //console.log(json)
         res.json(json);
       });
 
