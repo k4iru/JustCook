@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { UpdateUser} from '../../redux/User/user-actions';
+import { UpdateUser } from "../../redux/User/user-actions";
 import jwt_decode from "jwt-decode";
 import "./Register.css";
 
-const Register = ({user, UpdateUser}) => {
+const Register = ({ user, UpdateUser }) => {
   let history = useHistory();
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -26,17 +26,17 @@ const Register = ({user, UpdateUser}) => {
       password: password,
     };
     const response = await getData(user);
-    console.log(response);
+    // console.log(response);
 
     // OK. TODO handle 409, 400 status codes
     if (response.status === 200) {
-      const token = response.data;
+      const token  = response.data.token;
+      // console.log('token >>> ' + token);
       const authenticatedUser = jwt_decode(token);
       sessionStorage.setItem("token", token);
       UpdateUser(authenticatedUser);
       history.push("/");
-
-    }else {
+    } else {
       // VALIDATION
     }
   };
@@ -44,7 +44,6 @@ const Register = ({user, UpdateUser}) => {
   const getData = async (data) => {
     try {
       const response = await axios.post("/api/register", data);
-      console.log(response);
 
       return response;
     } catch (err) {
@@ -118,4 +117,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps )(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
