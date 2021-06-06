@@ -18,14 +18,14 @@ const Register = ({ user, UpdateUser }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const user = {
+    const response = await getData({
       first: first,
       last: last,
       username: username,
       email: email,
       password: password,
-    };
-    const response = await getData(user);
+    });
+
     console.log(response);
     console.log("response >>> " + response);
 
@@ -56,11 +56,10 @@ const Register = ({ user, UpdateUser }) => {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "*/*"
         },
         body: JSON.stringify(data),
       });
-
-     
 
       return response;
     } catch (err) {
