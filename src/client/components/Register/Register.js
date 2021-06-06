@@ -56,7 +56,7 @@ const Register = ({ user, UpdateUser }) => {
         credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "*/*"
+          "Accept": "*/*",
         },
         body: JSON.stringify(data),
       });
