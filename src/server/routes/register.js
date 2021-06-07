@@ -57,7 +57,7 @@ module.exports = function (app) {
           res.json(thing);
         }
       );
-
+        console.log(token);
       // Authorization is a request header try sending it from client instead.
       //res.setHeader('Authorization', `Bearer ${token}`);
       //res.json({ token: token });
