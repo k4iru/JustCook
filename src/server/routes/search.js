@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 const api_key = process.env.API_KEY;
 
 module.exports = function (app) {
-  app.post("/api/search", (req, res) => {
+  app.post("/api/search", async (req, res) => {
     const base_url = "https://api.spoonacular.com/recipes/complexSearch";
 
     // replace white space with +'s
@@ -14,21 +14,9 @@ module.exports = function (app) {
     // assemble the api string
     let api_string = `${base_url}?apiKey=${api_key}&query=${queries}`;
 
-    // get call to the spoonacular api
-
     // make fetch request
-    let request = fetch(api_string)
-
-        // then transform the response into json
-      .then((resp) => {
-        return resp.json();
-      })
-      
-      // then send the json to client
-      .then((json) => {
-        //console.log(json)
-        res.json(json);
-      });
-
+    let response = await fetch(api_string);
+    let json = await response.json();
+    res.json(json);
   });
 };
