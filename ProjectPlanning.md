@@ -99,5 +99,3 @@ Our app allows users to quickly search up recipes for meals they want to try onl
    * Deployment
 * Week 7
    * Presentation
-
-
