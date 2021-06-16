@@ -1,5 +1,5 @@
 /* use webpack to bundle and transpile the client */
-require('dotenv').config();
+require("dotenv").config();
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -27,7 +27,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: '/',
+    publicPath: "/",
     clean: true,
   },
 
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset' 
+        type: "asset",
       },
       {
         test: /\.(js|jsx)$/,
