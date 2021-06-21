@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import { connect } from "react-redux";
 
 import Recipes from './components/Recipes/Recipes';
+import Profile from "./components/Profile/Profile";
 
 const App = ({ current }) => {
   return (
@@ -30,6 +31,8 @@ const App = ({ current }) => {
           <Route exact path="/favourites" component={Recipes} />
 
           <Route exact path="/cart" component={Cart} />
+
+          <Route exact path="/profile" component={Profile} />
 
           <Route exact path="/" component={Home} />
             

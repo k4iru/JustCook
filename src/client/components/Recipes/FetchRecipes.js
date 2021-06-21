@@ -38,7 +38,7 @@ class HomeRecipes extends Component {
         );
       });
     }
-    return <div class="container">{showRecipes}</div>;
+    return <div className="container">{showRecipes}</div>;
   }
 } //end of render
 
