@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./SingleItem.module.css";
+import styles from "./SingleItem.css";
 
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/Shopping/shopping-actions";
@@ -8,20 +8,20 @@ import { addToCart } from "../../redux/Shopping/shopping-actions";
 
 const SingleItem = ({ current, addToCart }) => {
   return (
-    <div className={"styles.singleItem"}>
+    <div className={"singleItem"}>
       <img
         // className={styles.singleItem__image}
         src={current.image}
         alt={current.title}
       />
-      <div className={"styles.singleItem__details"}>
-        <p className={"styles.details__title"}>{current.title}</p>
-        <p className={"styles.details__description"}>{current.description}</p>
-        <p className={"styles.details__price"}>$ {current.price}</p>
+      <div className={"singleItem__details"}>
+        <p className={"details__title"}>{current.title}</p>
+        <p className={"details__description"}>{current.description}</p>
+        <p className={"details__price"}>$ {current.price ? current.price  : '10.00' }</p>
 
         <button
           onClick={() => addToCart(current.id)}
-          className={"styles.details__addBtn"}
+          className={"details__addBtn"}
         >
           Add To Cart
         </button>

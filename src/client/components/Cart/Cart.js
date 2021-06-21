@@ -17,7 +17,11 @@ const Cart = ({ cart }) => {
       //getting each item in the cart and then multiplying the price with the quantity
       cart.forEach((item) => {
         items += item.qty;
-        price += item.qty * item.price;
+        if (price == 0 || price === "undefined") {
+          price += item.qty * 10;
+        } else {
+          price += item.qty * item.price;
+        }
       });
   
       //setting the totals for item + price
@@ -27,19 +31,19 @@ const Cart = ({ cart }) => {
   
     //after logic above is done - return the information to the user
     return (
-      <div className={styles.cart}>
-        <div className={styles.cart__items}>
+      <div className={"cart"}>
+        <div className={"cart__items"}>
           {cart.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
         </div>
-        <div className={styles.cart__summary}>
-          <h4 className={styles.summary__title}>Cart Summary</h4>
-          <div className={styles.summary__price}>
+        <div className={"cart__summary"}>
+          <h4 className={"summary__title"}>Cart Summary</h4>
+          <div className={"summary__price"}>
             <span>TOTAL: ({totalItems} items)</span>
             <span>$ {totalPrice}</span>
           </div>
-          <button className={styles.summary__checkoutBtn}>
+          <button className={"summary__checkoutBtn"}>
             Proceed To Checkout
           </button>
         </div>

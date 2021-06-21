@@ -29,7 +29,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
       <div className={styles.cartItem__details}>
         <p className={styles.details__title}>{item.title}</p>
         <p className={styles.details__desc}>{item.description}</p>
-        <p className={styles.details__price}>$ {item.price}</p>
+        <p className={styles.details__price}>$ { item.price ? item.price : '10.00'}</p>
       </div>
       <div className={styles.cartItem__actions}>
         <div className={styles.cartItem__qty}>
