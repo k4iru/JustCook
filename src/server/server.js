@@ -23,6 +23,7 @@ require('./routes/search')(app);
 require('./routes/login')(app);
 require('./routes/register')(app);
 require('./routes/favourite')(app);
+require('./routes/profile')(app);
 
 mongoose.connect(process.env.URI, { useNewUrlParser: true,  useUnifiedTopology: true }, () => {
     console.log('connected to db');
