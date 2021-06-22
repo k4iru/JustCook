@@ -24,7 +24,7 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
       <div className={styles.product__details} className="recipe-details">
         <h2 className={styles.details__title}>{product.title}</h2>
         <p className={styles.details__desc}>{product.description}</p>
-        <p className={styles.details__price}>$ {product.price ? product.price : '10.00'} </p>
+        <p className={styles.details__price}>$ {product.price ? product.price : 10} </p>
       </div>
 
       <div className={styles.product__buttons} className="recipe-buttons">

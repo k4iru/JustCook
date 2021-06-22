@@ -17,7 +17,7 @@ const Cart = ({ cart }) => {
       //getting each item in the cart and then multiplying the price with the quantity
       cart.forEach((item) => {
         items += item.qty;
-        if (price == 0 || price === "undefined") {
+        if (price == 10 || price === "undefined") {
           price += item.qty * 10;
         } else {
           price += item.qty * item.price;

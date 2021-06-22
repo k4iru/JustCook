@@ -20,19 +20,19 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
   };
 
   return (
-    <div className={styles.cartItem}>
+    <div className={"cartItem"}>
       <img
-        className={styles.cartItem__image}
+        className={"cartItem__image"}
         src={item.image}
         alt={item.title}
       />
-      <div className={styles.cartItem__details}>
-        <p className={styles.details__title}>{item.title}</p>
-        <p className={styles.details__desc}>{item.description}</p>
-        <p className={styles.details__price}>$ { item.price ? item.price : '10.00'}</p>
+      <div className={"cartItem__details"}>
+        <p className={"details__title"}>{item.title}</p>
+        <p className={"details__desc"}>{item.description}</p>
+        <p className={"details__price"}>$ { item.price ? item.price : 10}</p>
       </div>
-      <div className={styles.cartItem__actions}>
-        <div className={styles.cartItem__qty}>
+      <div className={"cartItem__actions"}>
+        <div className={"cartItem__qty"}>
           <label htmlFor="qty">Qty</label>
           <input
             min="1"
@@ -45,7 +45,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
         </div>
         <button
           onClick={() => removeFromCart(item.id)}
-          className={"styles.actions__deleteItemBtn"}
+          className={"actions__deleteItemBtn"}
         >
           <img
             src="https://image.flaticon.com/icons/svg/709/709519.svg"
