@@ -1,4 +1,4 @@
-.container {
+.profile_container {
     width: 60%;
     margin: 40px auto;
     padding: 40px 0;
@@ -6,11 +6,11 @@
     border-radius: 20px;
     display: block;
 }
-.container h2 {
+.profile_container h2 {
     text-align: center;
     text-transform: uppercase;
 }
-.container p {
+.profile_container p {
     padding: 20px 40px;
 }
 .noncontainer{
