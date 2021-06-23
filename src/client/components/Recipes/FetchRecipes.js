@@ -26,11 +26,11 @@ class HomeRecipes extends Component {
       });
   }
 
-  handleClick = (item) => {
+  handleClick = () => {
     this.setState({
       clicked: !this.state.clicked,
     });
-    console.log(item);
+    console.log(this);
   };
 
   render() {
@@ -42,7 +42,7 @@ class HomeRecipes extends Component {
           <div className="container">
             <div className="recipe-previews">
               <div key={i}>{recipe.id}</div>
-              <button onClick={this.handleClick.bind(recipe)}>
+              <button onClick={this.handleClick.bind(this, i)}>
                 <img src={recipe.image}></img>
                 <h3>{recipe.title}</h3>
                 <p>{recipe.summary}</p>
