@@ -63,3 +63,13 @@
   color: purple;
   text-align: center;
 }
+
+.close {
+  color: Black;
+  float: right;
+}
+
+.close:hover {
+  color: cyan;
+  cursor: pointer;
+}

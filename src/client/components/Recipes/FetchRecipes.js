@@ -49,7 +49,6 @@ class HomeRecipes extends Component {
               </button>
             </div>
             {this.state.clicked ? <PopUp toggle={this.handleClick} /> : null}
-            <PopUp fetchData={this.recipe} />
           </div>
         );
       });
@@ -64,5 +63,6 @@ class HomeRecipes extends Component {
 // https://github.com/k4iru/personal-site/blob/master/src/Components/Portfolio.js
 // https://blog.logrocket.com/a-guide-to-react-onclick-event-handlers-d411943b14dd/
 // https://reactjs.org/docs/handling-events.html
-
+// popup event:
+// https://medium.com/@daniela.sandoval/creating-a-popup-window-using-js-and-react-4c4bd125da57
 export default HomeRecipes;

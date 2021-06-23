@@ -5,13 +5,13 @@ export default class PopUp extends Component {
   };
   render() {
     const { fetchData } = this.props;
-    console.log("test");
+    console.log(fetchData);
 
     return (
       <div className="modal">
         <div className="modal_content">
           <span className="close" onClick={this.handleClick}>
-            &times;{" "}
+            &times;
           </span>
           <p>
             This is where the recipe details would go IF I KNEW HOW TO DO IT
