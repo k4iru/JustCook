@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, '../../dist')));
 // add api routes to the routes folder and require them here while passing the app
 require('./routes/test')(app);
 require('./routes/search')(app);
+require('./routes/recipe')(app);
 
 // TODO
 require('./routes/login')(app);

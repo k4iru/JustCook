@@ -1,0 +1,44 @@
+#title {
+  text-align: center;
+  margin: 0.5em auto;
+}
+
+.recipeDetails {
+  padding: 3em 5em;
+  margin: 3em;
+  background-color: var(--yellow);
+  border-radius: 25px 10px 25px 10px;
+}
+
+.recipeDetails a {
+  color: var(--navy-blue);
+}
+
+.splitBlock {
+  margin: 1.5em auto;
+}
+
+.splitBlock h2 {
+  text-decoration: underline;
+  font-size: 1.25em;
+}
+
+.imgBlock {
+  display: flex;
+  justify-content: center;
+}
+
+#img {
+  border-radius: 25px 10px 25px 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#ingredients ul {
+  list-style: none;
+}
+
+.recipeDetailBtn {
+  font-size: 1.5em;
+  color: white !important;
+}

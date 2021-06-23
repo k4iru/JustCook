@@ -7,6 +7,7 @@ import Cart from './components/Cart/Cart';
 import SingleItem from './components/SingleItem/SingleItem';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
+import Details from "./components/Details/Details";
 
 import { connect } from "react-redux";
 
@@ -35,6 +36,8 @@ const App = ({ current }) => {
           <Route exact path="/profile" component={Profile} />
 
           <Route exact path="/" component={Home} />
+
+          <Route exact path="/details/:id" component={Details} />
             
           <Route exact path="/recipe/:id" >
             <SingleItem />
