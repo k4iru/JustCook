@@ -9,7 +9,7 @@ module.exports = function (app) {
     const base_url = "https://api.spoonacular.com/recipes/complexSearch";
 
     // replace white space with +'s
-    queries = req.body.query.replace(/\s/g, "+");
+    let queries = req.body.query.replace(/\s/g, "+");
 
     // assemble the api string
     let api_string = `${base_url}?apiKey=${api_key}&query=${queries}`;
