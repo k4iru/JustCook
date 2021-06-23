@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/Shopping/shopping-actions";
 
-const Details = ({ recipe, addToCart }) => {
+const Details = ({ recipe, current, addToCart }) => {
   const { id } = useParams();
 
   // get recipe info
@@ -102,7 +102,7 @@ const Details = ({ recipe, addToCart }) => {
         <div className={styles.product__buttons} className="recipe-buttons">
           <button
             // whenever this button is clicked add the item to the cart
-            onClick={() => addToCart(id)}
+            onClick={() => addToCart(current.id)}
             className="recipeDetailBtn"
           >
             Add To Cart
@@ -113,6 +113,12 @@ const Details = ({ recipe, addToCart }) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    current: state.shop.currentItem,
+  };
+};
+
 // send the dispatch function
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -121,4 +127,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Details);
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

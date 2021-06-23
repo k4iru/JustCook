@@ -4,6 +4,7 @@ import style from "./Recipes.css";
 // importing the ability to connect to redux
 import { connect } from "react-redux";
 import Recipe from './Recipe/Recipe';
+import Details from '../Details/Details'
 
 
 const Recipes = ({ recipes, results }) => {
@@ -13,6 +14,7 @@ const Recipes = ({ recipes, results }) => {
       
       {results.map((recipe) => (
         <Recipe key={recipe.id} product={recipe} />
+        // <Details key={recipe.id} recipe={recipe} />
       ))}
     </div>
   );

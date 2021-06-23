@@ -17,10 +17,13 @@ const Cart = ({ cart }) => {
       //getting each item in the cart and then multiplying the price with the quantity
       cart.forEach((item) => {
         items += item.qty;
-        if (price == 10 || price === "undefined") {
+        console.log(price);
+        if (price === "undefined" || price == 0 || price == NaN) {
           price += item.qty * 10;
+          console.log(price, "price after calc")
         } else {
-          price += item.qty * item.price;
+          // price += item.qty * item.price;
+          price += item.qty * 10;
         }
       });
   

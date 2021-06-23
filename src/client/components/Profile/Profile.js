@@ -29,7 +29,7 @@ class Profile extends React.Component {
     let comp;
     if(this.props.user !==null) {
       comp = 
-      <div className='container'>
+      <div className='profile_container'>
         <h2>{`${this.state.first} ${this.state.last}`}</h2>
         <p>username: {this.state.username}</p>
         <p>email: {this.state.email}</p>
